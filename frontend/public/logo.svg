@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0077b6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d1b2a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#bgGrad)" stroke="#00e5ff" stroke-width="1.5" opacity="0.8"/>
+
+  <!-- Outer glow ring -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#00e5ff" stroke-width="0.5" opacity="0.3" filter="url(#softglow)"/>
+
+  <!-- Shield body -->
+  <path d="M100 30 L155 55 L155 105 Q155 145 100 170 Q45 145 45 105 L45 55 Z"
+        fill="url(#shieldGrad)" opacity="0.15" filter="url(#glow)"/>
+
+  <!-- Shield border -->
+  <path d="M100 30 L155 55 L155 105 Q155 145 100 170 Q45 145 45 105 L45 55 Z"
+        fill="none" stroke="#00e5ff" stroke-width="2.5" filter="url(#glow)"/>
+
+  <!-- Shield inner border -->
+  <path d="M100 40 L148 62 L148 105 Q148 138 100 160 Q52 138 52 105 L52 62 Z"
+        fill="none" stroke="#00e5ff" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Lock body -->
+  <rect x="82" y="105" width="36" height="28" rx="4" ry="4"
+        fill="#00e5ff" opacity="0.9" filter="url(#glow)"/>
+
+  <!-- Lock shackle -->
+  <path d="M88 105 L88 93 Q88 80 100 80 Q112 80 112 93 L112 105"
+        fill="none" stroke="#00e5ff" stroke-width="6" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Lock keyhole -->
+  <circle cx="100" cy="116" r="5" fill="#0a0a0f"/>
+  <rect x="97.5" y="116" width="5" height="8" rx="1" fill="#0a0a0f"/>
+
+  <!-- Corner circuit lines -->
+  <line x1="45" y1="75" x2="30" y2="75" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+  <line x1="30" y1="75" x2="30" y2="60" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+  <line x1="155" y1="75" x2="170" y2="75" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+  <line x1="170" y1="75" x2="170" y2="60" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+
+  <!-- Dots at corners -->
+  <circle cx="30" cy="60" r="2" fill="#00e5ff" opacity="0.7"/>
+  <circle cx="170" cy="60" r="2" fill="#00e5ff" opacity="0.7"/>
+
+</svg>
