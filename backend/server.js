@@ -23,15 +23,41 @@ const { detectAttack, enrichWithGeo } = require('./utils/ruleEngine');
 const { simulateTraffic } = require('./utils/trafficSimulator');
 const logger = require('./utils/logger');
 
+// ---- CORS Config ----
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://cybershield-ysnl.vercel.app',
+  process.env.FRONTEND_URL
+].filter(Boolean);
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
 const app    = express();
 const server = http.createServer(app);
 const io     = new Server(server, {
-  cors: { origin: process.env.FRONTEND_URL || 'https://cybershield-fzb5.onrender.com', methods:['GET','POST'], credentials:true }
+  cors: {
+    origin: allowedOrigins,
+    methods: ['GET', 'POST'],
+    credentials: true
+  }
 });
 
 // ---- Middleware ----
 app.use(helmet({ contentSecurityPolicy: false }));
-app.use(cors({ origin: process.env.FRONTEND_URL || 'https://cybershield-fzb5.onrender.com', credentials:true }));
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Handle preflight requests
 app.use(express.json());
 app.use(morgan('combined', { stream:{ write: msg => logger.info(msg.trim()) }}));
 app.set('io', io);
@@ -169,7 +195,7 @@ async function startSimulation() {
 }
 
 // ---- MongoDB Connect ----
-mongoose.connect(process.env.MONGODB_URI || 'https://cybershield-fzb5.onrender.com')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => { logger.info('✅ MongoDB Connected'); startSimulation(); })
   .catch(err => { logger.error('MongoDB error:', err.message); logger.warn('⚠️  Running without DB'); startSimulation(); });
 
