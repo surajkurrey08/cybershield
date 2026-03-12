@@ -26,12 +26,12 @@ const logger = require('./utils/logger');
 const app    = express();
 const server = http.createServer(app);
 const io     = new Server(server, {
-  cors: { origin: process.env.FRONTEND_URL || 'http://localhost:3000', methods:['GET','POST'], credentials:true }
+  cors: { origin: process.env.FRONTEND_URL || 'https://cybershield-fzb5.onrender.com', methods:['GET','POST'], credentials:true }
 });
 
 // ---- Middleware ----
 app.use(helmet({ contentSecurityPolicy: false }));
-app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:3000', credentials:true }));
+app.use(cors({ origin: process.env.FRONTEND_URL || 'https://cybershield-fzb5.onrender.com', credentials:true }));
 app.use(express.json());
 app.use(morgan('combined', { stream:{ write: msg => logger.info(msg.trim()) }}));
 app.set('io', io);
@@ -169,7 +169,7 @@ async function startSimulation() {
 }
 
 // ---- MongoDB Connect ----
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/cybershield')
+mongoose.connect(process.env.MONGODB_URI || 'https://cybershield-fzb5.onrender.com')
   .then(() => { logger.info('✅ MongoDB Connected'); startSimulation(); })
   .catch(err => { logger.error('MongoDB error:', err.message); logger.warn('⚠️  Running without DB'); startSimulation(); });
 
