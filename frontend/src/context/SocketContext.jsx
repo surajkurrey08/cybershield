@@ -14,7 +14,7 @@ export function SocketProvider({ children }) {
   const [attackHistory, setAttackHistory] = useState([]);
 
   useEffect(() => {
-    const s = io(process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000', {
+    const s = io(process.env.REACT_APP_BACKEND_URL || 'https://cybershield-fzb5.onrender.com', {
       transports:['websocket','polling'], reconnectionAttempts:5
     });
     s.on('connect',    () => { setConnected(true);  s.emit('subscribe_alerts'); s.emit('subscribe_traffic'); });
