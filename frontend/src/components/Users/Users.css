@@ -1,0 +1,22 @@
+/* Users.css */
+.users__content { padding:24px; }
+.users__top-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
+.users__form-panel { padding:20px; }
+.users__form-title { font-family:var(--font-display); font-size:11px; color:var(--text-muted); letter-spacing:2px; margin-bottom:18px; }
+.users__form-grid  { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+.users__form-full  { margin-bottom:12px; }
+.users__list-panel { padding:20px; }
+.users__list-title { font-family:var(--font-display); font-size:11px; color:var(--text-muted); letter-spacing:2px; margin-bottom:16px; }
+.user-card { background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:6px; padding:14px 18px; display:flex; align-items:center; gap:14px; transition:all 0.2s; margin-bottom:8px; }
+.user-card:hover   { border-color:var(--accent-cyan); }
+.user-card.inactive{ opacity:0.45; }
+.user-card__avatar { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(168,85,247,0.2)); border:1px solid rgba(0,212,255,0.35); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:16px; color:var(--accent-cyan); flex-shrink:0; }
+.user-card__name   { font-family:var(--font-main); font-size:14px; color:var(--text-primary); font-weight:600; }
+.user-card__email  { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); margin-top:2px; }
+.user-card__meta   { display:flex; gap:12px; margin-top:4px; flex-wrap:wrap; }
+.user-card__meta-item { font-family:var(--font-mono); font-size:11px; color:var(--text-secondary); }
+.user-card__actions { display:flex; gap:6px; margin-left:auto; flex-shrink:0; }
+.activity__panel   { padding:20px; margin-top:16px; }
+.activity__title   { font-family:var(--font-display); font-size:11px; color:var(--text-muted); letter-spacing:2px; margin-bottom:14px; }
+@media (max-width:900px) { .users__top-grid{grid-template-columns:1fr;} }
+@media (max-width:768px)  { .users__content{padding:14px;} .users__form-grid{grid-template-columns:1fr;} }

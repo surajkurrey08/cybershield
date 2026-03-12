@@ -1,0 +1,73 @@
+/* =============================================
+   Header.css
+   ============================================= */
+
+.header {
+  height: 62px;
+  background: rgba(6,11,23,0.95);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  transition: background 0.3s;
+}
+[data-theme="light"] .header {
+  background: rgba(240,244,248,0.95);
+}
+
+.header__left {}
+
+.header__title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.header__subtitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__stats {
+  display: flex;
+  gap: 18px;
+}
+
+/* ---- Stat Pill ---- */
+.stat-pill { text-align: center; }
+.stat-pill__value { font-family: var(--font-display); font-size: 15px; font-weight: 700; }
+.stat-pill__label { font-family: var(--font-mono); font-size: 9px; color: var(--text-muted); letter-spacing: 1px; }
+
+/* ---- Clock ---- */
+.header__clock {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent-cyan);
+  background: rgba(0,212,255,0.06);
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 4px;
+  padding: 5px 12px;
+  letter-spacing: 1px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .header { padding: 0 16px 0 56px; }
+  .header__stats { display: none; }
+  .header__clock { font-size: 11px; padding: 4px 8px; }
+}

@@ -1,0 +1,20 @@
+/* IPBlock.css */
+.ipblock__content { padding:24px; }
+.ipblock__top-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
+.ipblock__form-panel { padding:20px; }
+.ipblock__form-title { font-family:var(--font-display); font-size:11px; color:var(--text-muted); letter-spacing:2px; margin-bottom:18px; }
+.ipblock__form-grid  { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+.ipblock__form-full  { margin-bottom:12px; }
+.ipblock__list-panel { padding:20px; }
+.ipblock__list-title { font-family:var(--font-display); font-size:11px; color:var(--text-muted); letter-spacing:2px; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+.ipblock__list       { display:flex; flex-direction:column; gap:8px; max-height:420px; overflow-y:auto; }
+.ip-card { background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:6px; padding:12px 16px; display:flex; align-items:center; gap:12px; transition:all 0.2s; }
+.ip-card:hover { border-color:var(--accent-cyan); }
+.ip-card.auto  { border-color:rgba(168,85,247,0.3); }
+.ip-card__ip   { font-family:var(--font-mono); font-size:13px; color:var(--accent-orange); font-weight:600; min-width:130px; }
+.ip-card__reason { font-family:var(--font-mono); font-size:11px; color:var(--text-secondary); flex:1; }
+.ip-card__meta   { font-family:var(--font-mono); font-size:10px; color:var(--text-muted); }
+.ip-card__actions{ display:flex; gap:6px; margin-left:auto; }
+.ipblock__empty { text-align:center; padding:40px; color:var(--text-muted); font-family:var(--font-mono); font-size:13px; }
+@media (max-width:900px) { .ipblock__top-grid{grid-template-columns:1fr;} }
+@media (max-width:768px) { .ipblock__content{padding:14px;} .ipblock__form-grid{grid-template-columns:1fr;} }

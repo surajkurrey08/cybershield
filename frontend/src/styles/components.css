@@ -1,0 +1,160 @@
+/* =============================================
+   CyberShield v2 — Reusable Components CSS
+   ============================================= */
+
+/* ---- Utility ---- */
+.font-mono    { font-family: var(--font-mono); }
+.font-display { font-family: var(--font-display); }
+.text-cyan    { color: var(--accent-cyan); }
+.text-green   { color: var(--accent-green); }
+.text-red     { color: var(--accent-red); }
+.text-orange  { color: var(--accent-orange); }
+.text-yellow  { color: var(--accent-yellow); }
+.text-muted   { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+
+/* ---- Cyber Card ---- */
+.cyber-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  position: relative;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: var(--shadow-card);
+}
+.cyber-card:hover { border-color: var(--accent-cyan); box-shadow: var(--glow-cyan); }
+.cyber-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:1px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  opacity: 0.5;
+}
+
+/* ---- Buttons ---- */
+.cyber-btn {
+  font-family: var(--font-display); font-size:11px; letter-spacing:1px;
+  text-transform:uppercase; padding:8px 18px; border-radius:4px;
+  border:1px solid; cursor:pointer; transition:all 0.2s; background:transparent;
+  white-space: nowrap;
+}
+.cyber-btn-primary  { border-color:var(--accent-cyan);   color:var(--accent-cyan); }
+.cyber-btn-primary:hover  { background:rgba(0,212,255,0.12); box-shadow:var(--glow-cyan); }
+.cyber-btn-danger   { border-color:var(--accent-red);    color:var(--accent-red); }
+.cyber-btn-danger:hover   { background:rgba(255,45,85,0.12);  box-shadow:var(--glow-red); }
+.cyber-btn-success  { border-color:var(--accent-green);  color:var(--accent-green); }
+.cyber-btn-success:hover  { background:rgba(0,255,157,0.1);   box-shadow:var(--glow-green); }
+.cyber-btn-warning  { border-color:var(--accent-orange); color:var(--accent-orange); }
+.cyber-btn-warning:hover  { background:rgba(255,124,0,0.12); }
+.cyber-btn:disabled { opacity:0.4; cursor:not-allowed; }
+
+/* ---- Badges ---- */
+.badge {
+  display:inline-flex; align-items:center; gap:4px;
+  padding:3px 10px; border-radius:3px;
+  font-family:var(--font-mono); font-size:11px; font-weight:600;
+  letter-spacing:1px; text-transform:uppercase; border:1px solid;
+}
+.badge-critical { color:var(--severity-critical); background:rgba(255,45,85,0.12);  border-color:rgba(255,45,85,0.4); }
+.badge-high     { color:var(--severity-high);     background:rgba(255,124,0,0.12);  border-color:rgba(255,124,0,0.4); }
+.badge-medium   { color:var(--severity-medium);   background:rgba(255,215,0,0.10);  border-color:rgba(255,215,0,0.35); }
+.badge-low      { color:var(--severity-low);      background:rgba(0,212,255,0.10);  border-color:rgba(0,212,255,0.3); }
+.badge-admin    { color:#a855f7; background:rgba(168,85,247,0.12); border-color:rgba(168,85,247,0.4); }
+.badge-analyst  { color:var(--accent-cyan); background:rgba(0,212,255,0.1); border-color:rgba(0,212,255,0.3); }
+.badge-viewer   { color:var(--text-muted);  background:rgba(61,107,138,0.15); border-color:rgba(61,107,138,0.3); }
+
+/* ---- Pulse Dot ---- */
+@keyframes pulse-dot {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.5; transform:scale(1.4); }
+}
+.pulse-dot { width:8px; height:8px; border-radius:50%; display:inline-block; animation:pulse-dot 1.5s ease-in-out infinite; }
+.pulse-dot-green  { background:var(--accent-green);  box-shadow:0 0 6px var(--accent-green); }
+.pulse-dot-red    { background:var(--accent-red);    box-shadow:0 0 6px var(--accent-red); }
+.pulse-dot-yellow { background:var(--accent-yellow); box-shadow:0 0 6px var(--accent-yellow); }
+.pulse-dot-cyan   { background:var(--accent-cyan);   box-shadow:0 0 6px var(--accent-cyan); }
+
+/* ---- Alert Flash ---- */
+@keyframes alert-flash {
+  0%,100% { background:rgba(255,45,85,0.05); }
+  50%      { background:rgba(255,45,85,0.15); }
+}
+.alert-new { animation:alert-flash 1s ease-in-out 3; }
+
+/* ---- Fade In ---- */
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.fade-in-up { animation:fadeInUp 0.35s ease forwards; }
+
+/* ---- Table ---- */
+.cyber-table { width:100%; border-collapse:collapse; font-size:13px; }
+.cyber-table thead th {
+  font-family:var(--font-display); font-size:10px; letter-spacing:2px;
+  text-transform:uppercase; color:var(--text-muted);
+  padding:12px 16px; text-align:left; border-bottom:1px solid var(--border-color);
+}
+.cyber-table tbody tr { border-bottom:1px solid rgba(26,58,92,0.4); transition:background 0.2s; }
+.cyber-table tbody tr:hover { background:rgba(0,212,255,0.04); }
+.cyber-table tbody td { padding:11px 16px; font-family:var(--font-mono); font-size:12px; color:var(--text-secondary); }
+
+/* ---- Inputs ---- */
+.cyber-input {
+  background:var(--bg-secondary); border:1px solid var(--border-color);
+  border-radius:4px; color:var(--text-primary);
+  font-family:var(--font-mono); font-size:13px; padding:9px 14px;
+  outline:none; transition:border-color 0.2s, box-shadow 0.2s; width:100%;
+}
+.cyber-input:focus { border-color:var(--accent-cyan); box-shadow:0 0 0 2px rgba(0,212,255,0.1); }
+.cyber-input::placeholder { color:var(--text-muted); }
+.cyber-input.error { border-color:var(--accent-red); }
+
+.cyber-select {
+  background:var(--bg-secondary); border:1px solid var(--border-color);
+  border-radius:4px; color:var(--text-primary);
+  font-family:var(--font-mono); font-size:12px; padding:8px 12px;
+  outline:none; cursor:pointer;
+}
+
+.cyber-label {
+  font-family:var(--font-display); font-size:10px;
+  color:var(--text-muted); letter-spacing:2px;
+  text-transform:uppercase; display:block; margin-bottom:6px;
+}
+
+/* ---- Toggle ---- */
+.toggle-track { width:44px; height:24px; border-radius:12px; position:relative; cursor:pointer; transition:all 0.2s; }
+.toggle-track.on  { background:rgba(0,255,157,0.15); border:1px solid rgba(0,255,157,0.4); }
+.toggle-track.off { background:rgba(26,58,92,0.5);   border:1px solid rgba(26,58,92,0.5); }
+.toggle-thumb { width:16px; height:16px; border-radius:50%; position:absolute; top:3px; transition:all 0.2s; }
+.toggle-thumb.on  { left:23px; background:var(--accent-green); box-shadow:0 0 6px var(--accent-green); }
+.toggle-thumb.off { left:3px;  background:var(--text-muted); }
+
+/* ---- Chart Title ---- */
+.chart-title { font-family:var(--font-display); font-size:11px; color:var(--text-muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+
+/* ---- Section Page ---- */
+.page { min-height:100vh; }
+.page__content { padding:24px; }
+
+/* ---- Stat Card ---- */
+.stat-card { padding:20px; }
+.stat-card__label { font-family:var(--font-display); font-size:9px; color:var(--text-muted); letter-spacing:2px; margin-bottom:10px; }
+.stat-card__value { font-family:var(--font-display); font-size:26px; font-weight:700; }
+.stat-card__sub   { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); margin-top:4px; }
+.stat-card__icon  { font-size:22px; opacity:0.6; }
+
+/* ---- Error text ---- */
+.error-text { font-family:var(--font-mono); font-size:12px; color:var(--accent-red); margin-top:4px; }
+
+/* ---- Responsive Grid Helpers ---- */
+.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+
+@media (max-width:1100px) {
+  .grid-4 { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:768px) {
+  .grid-4, .grid-3, .grid-2 { grid-template-columns:1fr; }
+  .page__content { padding:16px; }
+}

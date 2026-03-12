@@ -1,0 +1,96 @@
+/* =============================================
+   CyberShield v2 — Global CSS + Theme System
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700;900&family=Orbitron:wght@400;700;900&display=swap');
+
+/* ---- DARK THEME (default) ---- */
+:root, [data-theme="dark"] {
+  --bg-primary:    #060b17;
+  --bg-secondary:  #0a1628;
+  --bg-card:       #0d1f35;
+  --bg-card-hover: #112540;
+  --border-color:  #1a3a5c;
+  --text-primary:  #e0f4ff;
+  --text-secondary:#7ab8d4;
+  --text-muted:    #3d6b8a;
+  --accent-cyan:   #00d4ff;
+  --accent-green:  #00ff9d;
+  --accent-red:    #ff2d55;
+  --accent-orange: #ff7c00;
+  --accent-yellow: #ffd700;
+  --accent-purple: #a855f7;
+  --severity-critical:#ff2d55;
+  --severity-high:    #ff7c00;
+  --severity-medium:  #ffd700;
+  --severity-low:     #00d4ff;
+  --glow-cyan:  0 0 20px rgba(0,212,255,0.4);
+  --glow-red:   0 0 20px rgba(255,45,85,0.4);
+  --glow-green: 0 0 20px rgba(0,255,157,0.3);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+  --grid-line:  rgba(0,212,255,0.03);
+}
+
+/* ---- LIGHT THEME ---- */
+[data-theme="light"] {
+  --bg-primary:    #f0f4f8;
+  --bg-secondary:  #e2eaf3;
+  --bg-card:       #ffffff;
+  --bg-card-hover: #f5f9ff;
+  --border-color:  #c8d8ea;
+  --text-primary:  #0d1f35;
+  --text-secondary:#2a5080;
+  --text-muted:    #7a9ab8;
+  --accent-cyan:   #0088bb;
+  --accent-green:  #00aa66;
+  --accent-red:    #dd1133;
+  --accent-orange: #dd6600;
+  --accent-yellow: #cc9900;
+  --accent-purple: #7733cc;
+  --severity-critical:#dd1133;
+  --severity-high:    #dd6600;
+  --severity-medium:  #cc9900;
+  --severity-low:     #0088bb;
+  --glow-cyan:  0 0 12px rgba(0,136,187,0.25);
+  --glow-red:   0 0 12px rgba(221,17,51,0.25);
+  --glow-green: 0 0 12px rgba(0,170,102,0.2);
+  --shadow-card: 0 2px 16px rgba(0,0,0,0.08);
+  --grid-line:  rgba(0,136,187,0.04);
+}
+
+/* ---- Fonts ---- */
+:root {
+  --font-mono:    'Share Tech Mono', monospace;
+  --font-main:    'Exo 2', sans-serif;
+  --font-display: 'Orbitron', monospace;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: var(--font-main);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+
+/* ---- Grid background ---- */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+}
